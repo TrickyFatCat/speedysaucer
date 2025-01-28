@@ -1,15 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://duimxk3iqouvd"]
+[gd_scene load_steps=4 format=3 uid="uid://duimxk3iqouvd"]
 
 [ext_resource type="Texture2D" uid="uid://cqy5qhnrei45w" path="res://assets/bg_purple.png" id="1_2u6rq"]
 [ext_resource type="PackedScene" uid="uid://bs2mnqaq3jpmh" path="res://entities/player.tscn" id="2_f37od"]
+[ext_resource type="PackedScene" uid="uid://c1iwnv7dux04b" path="res://entities/maze.tscn" id="3_r1avr"]
 
 [node name="LevelRoot" type="Node2D"]
 
 [node name="Background" type="TextureRect" parent="."]
+z_index = -1
 offset_right = 1280.0
 offset_bottom = 720.0
 texture = ExtResource("1_2u6rq")
 stretch_mode = 1
 
 [node name="Player" parent="." instance=ExtResource("2_f37od")]
-position = Vector2(605, 156)
+position = Vector2(85, 114)
+
+[node name="Maze" parent="." instance=ExtResource("3_r1avr")]
+
+[editable path="Maze"]
