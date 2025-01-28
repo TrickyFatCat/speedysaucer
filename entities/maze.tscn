@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1iwnv7dux04b"]
+
+[ext_resource type="Script" path="res://src/update_maze_visuals.gd" id="1_xh665"]
+
+[node name="Maze" type="Area2D"]
+
+[node name="Collision" type="CollisionPolygon2D" parent="." node_paths=PackedStringArray("visuals")]
+polygon = PackedVector2Array(0, 0, 0, 240, 150, 240, 150, 640, 0, 640, 0, 1040, 480, 1040, 480, 880, 560, 880, 560, 1040, 1120, 1040, 1120, 960, 1600, 960, 1600, 720, 1600, 240, 1920, 240, 1920, 0, 1360, 0, 1360, 219.51, 1360, 720, 1120, 720, 1120, 640, 880, 640, 880, 800, 800, 800, 800, 640, 400, 640, 400, 0)
+script = ExtResource("1_xh665")
+visuals = NodePath("../Visuals")
+
+[node name="Visuals" type="Polygon2D" parent="."]
