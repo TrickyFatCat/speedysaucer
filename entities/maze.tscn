@@ -1,8 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://c1iwnv7dux04b"]
+[gd_scene load_steps=6 format=3 uid="uid://c1iwnv7dux04b"]
 
 [ext_resource type="Script" path="res://src/maze.gd" id="1_m0ns3"]
 [ext_resource type="Script" path="res://src/update_maze_visuals.gd" id="1_xh665"]
 [ext_resource type="Texture2D" uid="uid://b7dxeyfc55lpt" path="res://assets/bg_purple_dark.png" id="2_kdco6"]
+[ext_resource type="FontFile" uid="uid://ceui08hlv0wmq" path="res://assets/IosevkaSlab-Regular.ttf" id="4_nudcp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nrrjv"]
+font = ExtResource("4_nudcp")
+font_size = 48
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Maze" type="Area2D"]
 script = ExtResource("1_m0ns3")
@@ -13,5 +20,33 @@ script = ExtResource("1_xh665")
 visuals = NodePath("../Visuals")
 
 [node name="Visuals" type="Polygon2D" parent="."]
+z_index = -2
 texture = ExtResource("2_kdco6")
 polygon = PackedVector2Array(0, 0, 0, 240, 150, 240, 150, 640, 0, 640, 0, 1040, 480, 1040, 480, 880, 560, 880, 560, 1040, 1120, 1040, 1120, 960, 1600, 960, 1600, 720, 1600, 240, 1920, 240, 1920, 0, 1360, 0, 1360, 219.51, 1360, 720, 1120, 720, 1120, 640, 880, 640, 880, 800, 800, 800, 800, 640, 400, 640, 400, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
+follow_viewport_enabled = true
+
+[node name="LabelStart" type="Label" parent="CanvasLayer"]
+offset_left = 140.0
+offset_top = 90.0
+offset_right = 260.0
+offset_bottom = 151.0
+text = "Start"
+label_settings = SubResource("LabelSettings_nrrjv")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="LabelFinish" type="Label" parent="CanvasLayer"]
+offset_left = 1690.0
+offset_top = 80.0
+offset_right = 1834.0
+offset_bottom = 141.0
+text = "Finish
+"
+label_settings = SubResource("LabelSettings_nrrjv")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
